@@ -1,0 +1,68 @@
+{
+  "name": "n8n-nodes-adacode",
+  "version": "0.1.0",
+  "description": "n8n community node untuk adaCODE — pakai satu API key adaCODE untuk semua model (Claude, GPT, GLM, Qwen, MiniMax, adaCODE house) di workflow n8n, termasuk sebagai Chat Model untuk AI Agent.",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "adacode",
+    "ai",
+    "llm",
+    "claude",
+    "gpt",
+    "openai-compatible"
+  ],
+  "license": "MIT",
+  "homepage": "https://adacode.ai",
+  "author": {
+    "name": "adaCODE Platform",
+    "email": "support@adacode.ai"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angga-ada-AI/n8n-nodes-adacode.git"
+  },
+  "engines": {
+    "node": ">=20.15"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rimraf dist && tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && eslint -c .eslintrc.prepublish.js nodes credentials package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/AdaCodeApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/AdaCode/AdaCode.node.js",
+      "dist/nodes/LmChatAdaCode/LmChatAdaCode.node.js"
+    ]
+  },
+  "dependencies": {
+    "@langchain/core": "^1.2.5",
+    "@langchain/openai": "^1.5.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@typescript-eslint/parser": "^8.32.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^5.0.0",
+    "n8n-workflow": "*",
+    "prettier": "^3.5.3",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.8.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
