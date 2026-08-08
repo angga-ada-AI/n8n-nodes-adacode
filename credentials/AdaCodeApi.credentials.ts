@@ -21,7 +21,7 @@ export class AdaCodeApi implements ICredentialType {
 			default: '',
 			required: true,
 			description:
-				'API key adaCODE (diawali sk-adacode-). Buat di https://adacode.ai/api-keys — satu key berlaku untuk semua model di katalog Anda.',
+				'API key adaCODE — sk-adacode-… (Coding Plan) atau sk-ac-… (Pay As You Go). Buat di https://adacode.ai/api-keys; satu key berlaku untuk semua model di katalog Anda.',
 		},
 		{
 			displayName: 'Base URL',
